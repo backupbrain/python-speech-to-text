@@ -19,14 +19,14 @@ ps = Pocketsphinx(**config)
 
 sound = AudioSegment.from_mp3("data/sample.mp3")
 
-sound.export("data/sample.raw", format="aac", bitrate="16k")
+sound.export("data/sample.raw", format="wav", bitrate="16k")
 
 with open("data/sample.raw", 'wb') as file:
     file.write(sound._data)
     file.close()
 
 ps.decode(
-    audio_file=os.path.join(data_path, 'sample.raw'),
+    audio_file=os.path.join(data_path, 'sample.wav'),
     buffer_size=2048,
     no_search=False,
     full_utt=False
